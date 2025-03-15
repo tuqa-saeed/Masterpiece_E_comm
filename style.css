@@ -1,0 +1,251 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-custom {
+    background-color: #111 !important;
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    padding: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffb4c6 !important;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    background: linear-gradient(to right, #000, #1a1a1a);
+    padding: 150px 0;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fffecd;
+    text-shadow: 0 0 10px rgba(255, 236, 203, 0.8);
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    color: #eee;
+    margin-bottom: 30px;
+}
+
+.btn-hero {
+    padding: 15px 35px;
+    font-size: 1.2em;
+    background-color: #ffb4c6;
+    border-color: #ffb4c6;
+    color: #333;
+}
+
+.btn-hero:hover {
+    background-color: #ffc7c8;
+    border-color: #ffc7c8;
+}
+
+/* Services Section Styles */
+.services-section {
+    padding: 100px 0;
+    background: linear-gradient(to bottom, #111, #000);
+}
+
+.section-title {
+    color: #fff;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    background-color: #222;
+}
+
+.service-icon {
+    font-size: 40px;
+    color: #ffc7c8;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: #ffd9c9;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #eee;
+    line-height: 1.6;
+}
+
+/* About Section Styles */
+.about-section {
+    padding: 100px 0;
+    background-color: #1a1a1a;
+    color: #eee;
+}
+
+.about-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+/* Contact Section Styles */
+.contact-section {
+    padding: 100px 0;
+    background: linear-gradient(to bottom, #000, #111);
+    color: #eee;
+}
+
+.contact-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+.contact-form-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-form .form-control {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.contact-form textarea.form-control {
+    height: 150px;
+}
+
+.contact-form .btn-primary {
+    background-color: #ffeccb;
+    border-color: #ffeccb;
+    color: #333;
+    padding: 15px 35px;
+    font-size: 1.1em;
+}
+
+.contact-form .btn-primary:hover {
+    background-color: #fffecd;
+    border-color: #fffecd;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.table-dark {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.table-dark th,
+.table-dark td {
+    border-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+.login-register-card {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.login-register-card h2.section-title {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.login-register-card .form-group {
+    margin-bottom: 20px;
+}
+
+.login-register-card label {
+    color: #ddd;
+}
+
+.login-register-card .form-control {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+.login-register-card .btn-primary {
+    margin-top: 10px;
+}
+
+.social-login {
+    margin-top: 20px;
+}
+
+.btn-social {
+    background-color: #444;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-social:hover {
+    background-color: #555;
+}
+
+.btn-google {
+    background-color: #db4437;
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+}

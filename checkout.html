@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <a class="navbar-brand" href="index.html">Your Store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="customization.html">Customize</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">Cart</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="checkout" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Checkout</h2>
+            <div class="row">
+                <div class="col-md-8 order-details">
+                    <h3>Order Summary</h3>
+                    <div class="cart-items">
+                        <div class="cart-item">
+                            <div class="item-info">
+                                <h4>Product Title 1</h4>
+                                <p>Price: $XX.XX</p>
+                                <p>Quantity: 1</p>
+                            </div>
+                        </div>
+                        <div class="cart-item">
+                            <div class="item-info">
+                                <h4>Product Title 2</h4>
+                                <p>Price: $YY.YY</p>
+                                <p>Quantity: 2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-summary mt-3">
+                        <p>Subtotal: $ZZ.ZZ</p>
+                        <p>Shipping: Calculated at Checkout</p>
+                        <h4 class="total">Total: $ZZ.ZZ</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 billing-details">
+                    <h3>Billing & Shipping Details</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Shipping Address</label>
+                            <textarea class="form-control" id="address" rows="3" placeholder="Enter your address"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="payment">Payment Method</label>
+                            <select class="form-control" id="payment">
+                                <option>Credit Card</option>
+                                <option>PayPal</option>
+                                <option>Cash on Delivery</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

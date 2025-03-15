@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin-style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-2 d-none d-md-block bg-dark sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-shopping-cart"></i>
+                                Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-box-open"></i>
+                                Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-edit"></i>
+                                Customizations
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-users"></i>
+                                Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-chart-bar"></i>
+                                Analytics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group mr-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                            <span data-feather="calendar"></span>
+                            This week
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dashboard Overview -->
+                <section id="dashboard-overview">
+                    <h2>Overview</h2>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card bg-primary text-white mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Orders</h5>
+                                    <p class="card-text">1,250</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-success text-white mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Revenue</h5>
+                                    <p class="card-text">$50,000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-warning text-dark mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Active Users</h5>
+                                    <p class="card-text">500</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-danger text-white mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pending Customizations</h5>
+                                    <p class="card-text">25</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <canvas class="my-4 w-100" id="salesChart" width="900" height="380"></canvas>
+                </section>
+
+                <!-- Orders Management -->
+                <section id="orders-management" class="mt-5">
+                    <h2>Orders Management</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Total</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1234</td>
+                                    <td>John Doe</td>
+                                    <td>2024-07-15</td>
+                                    <td>Processing</td>
+                                    <td>$45.00</td>
+                                    <td><a href="#">View</a> | <a href="#">Edit</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#1235</td>
+                                    <td>Jane Smith</td>
+                                    <td>2024-07-14</td>
+                                    <td>Shipped</td>
+                                    <td>$78.00</td>
+                                    <td><a href="#">View</a> | <a href="#">Edit</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#1236</td>
+                                    <td>Peter Jones</td>
+                                    <td>2024-07-13</td>
+                                    <td>Delivered</td>
+                                    <td>$120.00</td>
+                                    <td><a href="#">View</a> | <a href="#">Edit</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Product Management -->
+                <section id="product-management" class="mt-5">
+                    <h2>Product Management</h2>
+                    <button class="btn btn-primary mb-3">Add New Product</button>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Product ID</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Category</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>P1001</td>
+                                    <td>Custom T-Shirt</td>
+                                    <td>$25.00</td>
+                                    <td>150</td>
+                                    <td>Apparel</td>
+                                    <td><a href="#">View</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
+                                </tr>
+                                <tr>
+                                    <td>M2001</td>
+                                    <td>Personalized Mug</td>
+                                    <td>$15.00</td>
+                                    <td>200</td>
+                                    <td>Home & Decor</td>
+                                    <td><a href="#">View</a> | <a href="#">Edit</a> | <a href="#">Delete</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Customization Requests -->
+                <section id="customization-requests" class="mt-5">
+                    <h2>Customization Requests</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Request ID</th>
+                                    <th>User</th>
+                                    <th>Product</th>
+                                    <th>Design</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>R5001</td>
+                                    <td>Alice Brown</td>
+                                    <td>Custom T-Shirt</td>
+                                    <td><a href="#">View Design</a></td>
+                                    <td>Pending</td>
+                                    <td><a href="#">Approve</a> | <a href="#">Reject</a></td>
+                                </tr>
+                                <tr>
+                                    <td>R5002</td>
+                                    <td>Bob Green</td>
+                                    <td>Personalized Mug</td>
+                                    <td><a href="#">View Design</a></td>
+                                    <td>Approved</td>
+                                    <td><a href="#">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Users Management -->
+                <section id="users-management" class="mt-5">
+                    <h2>Users Management</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>U1001</td>
+                                    <td>admin</td>
+                                    <td>admin@example.com</td>
+                                    <td>Admin</td>
+                                    <td><a href="#">Edit</a></td>
+                                </tr>
+                                <tr>
+                                    <td>U1002</td>
+                                    <td>customer1</td>
+                                    <td>customer1@example.com</td>
+                                    <td>Customer</td>
+                                    <td><a href="#">Edit</a> | <a href="#">Deactivate</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                 <!-- Cart & Checkout Analytics -->
+                <section id="analytics" class="mt-5">
+                    <h2>Cart & Checkout Analytics</h2>
+                    <canvas class="my-4 w-100" id="checkoutChart" width="900" height="380"></canvas>
+                </section>
+
+                 <!-- Settings & Configurations -->
+                <section id="settings" class="mt-5">
+                    <h2>Settings & Configurations</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="paymentGateway">Payment Gateway</label>
+                            <select class="form-control" id="paymentGateway">
+                                <option>PayPal</option>
+                                <option>Stripe</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="shippingOptions">Shipping Options</label>
+                            <textarea class="form-control" id="shippingOptions" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="websiteLogo">Website Logo</label>
+                            <input type="file" class="form-control-file" id="websiteLogo">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </form>
+                </section>
+
+                 <!-- Reports & Analytics -->
+                <section id="reports" class="mt-5">
+                    <h2>Reports & Analytics</h2>
+                    <button class="btn btn-secondary mb-3">Generate Sales Report</button>
+                    <button class="btn btn-secondary mb-3">Export Data (CSV)</button>
+                    <button class="btn btn-secondary mb-3">Export Data (PDF)</button>
+                    <canvas class="my-4 w-100" id="reportsChart" width="900" height="380"></canvas>
+                </section>
+
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Customization</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fabric.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="customization-body">
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <a class="navbar-brand" href="index.html">Your Store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">Shop</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="customization.html">Customize</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">Cart</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="customization" class="py-5">
+        <div class="container-fluid">
+            <h2 class="section-title text-center mb-5">Design Your Dream Product</h2>
+            <div class="row no-gutters">
+                <div class="col-lg-8 customization-preview">
+                    <div class="preview-area glassmorphism">
+                        <canvas id="customCanvas" width="800" height="600"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-4 customization-controls">
+                    <div class="controls-area glassmorphism p-4">
+                        <h3 class="controls-title">Customize It!</h3>
+
+                        <div class="control-group text-control">
+                            <h4><i class="fas fa-font"></i> Text</h4>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-sm" id="textInput" placeholder="Enter your text">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="fontFamily">Font</label>
+                                    <select class="form-control form-control-sm" id="fontFamily">
+                                        <option value="Arial">Arial</option>
+                                        <option value="Verdana">Verdana</option>
+                                        <option value="Times New Roman">Times New Roman</option>
+                                        <option value="Courier New">Courier New</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="fontSize">Size</label>
+                                    <input type="number" class="form-control form-control-sm" id="fontSize" value="30">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="textColor">Color</label>
+                                <input type="color" class="form-control form-control-sm" id="textColor" value="#ffffff">
+                            </div>
+                            <button class="btn btn-pastel btn-sm" id="addTextBtn">Add Text</button>
+                        </div>
+
+                        <div class="control-group image-control mt-4">
+                            <h4><i class="fas fa-image"></i> Image</h4>
+                            <div class="form-group">
+                                <label for="imageUpload">Upload Image</label>
+                                <input type="file" class="form-control-file" id="imageUpload">
+                            </div>
+                        </div>
+
+                        <div class="control-group actions-control mt-5">
+                            <button class="btn btn-success btn-block" id="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="btn btn-secondary btn-block" id="saveDesignBtn"><i class="fas fa-save"></i> Save Design</button>
+                            <button class="btn btn-info btn-block" id="shareDesignBtn"><i class="fas fa-share-alt"></i> Share Design</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <span>&copy; 2024 My Futuristic Website</span>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="fabric.min.js"></script>
+    <script>
+        const canvas = new fabric.Canvas('customCanvas');
+        canvas.setBackgroundColor('#f8f9fa'); // Light background for canvas
+
+        document.getElementById('addTextBtn').addEventListener('click', function() {
+            const text = document.getElementById('textInput').value;
+            const fontFamily = document.getElementById('fontFamily').value;
+            const fontSize = parseInt(document.getElementById('fontSize').value, 10);
+            const textColor = document.getElementById('textColor').value;
+
+            const textObject = new fabric.Text(text, {
+                left: 200,
+                top: 250,
+                fontFamily: fontFamily,
+                fontSize: fontSize,
+                fill: textColor,
+                selectable: true,
+                originX: 'center',
+                originY: 'center'
+            });
+            canvas.add(textObject);
+        });
+
+        document.getElementById('imageUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(f) {
+                const data = f.target.result;
+                fabric.Image.fromURL(data, function(img) {
+                    img.set({
+                        left: canvas.getWidth() / 2,
+                        top: canvas.getHeight() / 2,
+                        scaleX: 0.5,
+                        scaleY: 0.5,
+                        selectable: true,
+                        originX: 'center',
+                        originY: 'center'
+                    });
+                    canvas.add(img);
+                    canvas.renderAll();
+                });
+            };
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById('addToCartBtn').addEventListener('click', function() {
+            alert('Product design added to cart!');
+        });
+
+        document.getElementById('saveDesignBtn').addEventListener('click', function() {
+            alert('Design saved!');
+        });
+
+        document.getElementById('shareDesignBtn').addEventListener('click', function() {
+            alert('Design sharing feature coming soon!');
+        });
+    </script>
+</body>
+</html>
